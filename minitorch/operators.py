@@ -30,7 +30,7 @@ def add(x: float, y: float) -> float:
 
 def neg(x: float) -> float:
     "$f(x) = -x$"
-    return -x
+    return -float(x)
     # raise NotImplementedError("Need to implement for Task 0.1")
 
 
@@ -83,7 +83,7 @@ def relu(x: float) -> float:
 
     (See https://en.wikipedia.org/wiki/Rectifier_(neural_networks) .)
     """
-    return x if (x > 0) else 0
+    return x if (x > 0.0) else 0.0
     # raise NotImplementedError("Need to implement for Task 0.1")
 
 
@@ -108,19 +108,19 @@ def log_back(x: float, d: float) -> float:
 
 def inv(x: float) -> float:
     "$f(x) = 1/x$"
-    return 1 / x
+    return 1.0 / x
     # raise NotImplementedError("Need to implement for Task 0.1")
 
 
 def inv_back(x: float, d: float) -> float:
     r"If $f(x) = 1/x$ compute $d \times f'(x)$"
-    return d / (x**2)
+    return -d / (x**2)
     # raise NotImplementedError("Need to implement for Task 0.1")
 
 
 def relu_back(x: float, d: float) -> float:
     r"If $f = relu$ compute $d \times f'(x)$"
-    return d * lt(0, x)
+    return d * lt(0.0, x)
     # raise NotImplementedError("Need to implement for Task 0.1")
 
 
@@ -210,11 +210,11 @@ def reduce(
 
 def sum(ls: Iterable[float]) -> float:
     "Sum up a list using `reduce` and `add`."
-    return reduce(add, 0)(ls)
+    return reduce(add, 0.0)(ls)
     # raise NotImplementedError("Need to implement for Task 0.3")
 
 
 def prod(ls: Iterable[float]) -> float:
     "Product of a list using `reduce` and `mul`."
-    return reduce(mul, 1)(ls)
+    return reduce(mul, 1.0)(ls)
     # raise NotImplementedError("Need to implement for Task 0.3")
